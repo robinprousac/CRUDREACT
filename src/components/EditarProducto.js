@@ -5,7 +5,7 @@ import { ProductosContext } from '../context/ProductosContext';
 function EditarProducto({history}) {
 
 
-   // const { agregarProducto } = useContext(ProductosContext);
+
     const [producto , guardarProducto] =  useState({
         nombre : '',
         precio : 0
@@ -17,9 +17,14 @@ function EditarProducto({history}) {
     const {productoeditar, guardareditado} = useContext(ProductosContext);
   
     // llenar el state automaticamente
+    //se utiliza un useEffect (HOOK) como en el contexto para cargar los productos
+    //en este caso el use effect se ejecuta siempre que cambie el productoeditar y la primera vez que se 
+    //renderiza el componente
     useEffect( () => {
         guardarProducto(productoeditar);
     }, [productoeditar]);
+
+    //el resto de codigo es similar a NuevoProducto.js revisar este componente
 
     const actualizarState = e => {
         guardarProducto({
@@ -41,10 +46,11 @@ function EditarProducto({history}) {
 
 
 
-        // crear el Editar producto
+        
         guardareditado(producto);
+        console.log(producto)
 
-        // redireccionar
+ 
         history.push('/');
     }
 
@@ -89,7 +95,7 @@ function EditarProducto({history}) {
                             <button 
                                 type="submit"
                                 className="btn btn-primary font-weight-bold text-uppercase d-block w-100"
-                            >Agregar</button>
+                            >Editar</button>
                         </form>
 
                       </div>

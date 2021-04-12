@@ -1,0 +1,19 @@
+{
+  "productos": [
+    {
+      "nombre": "nuevo phone",
+      "precio": "45",
+      "id": 18
+    },
+    {
+      "nombre": "new productsss",
+      "precio": "50",
+      "id": 19
+    },
+    {
+      "nombre": "ultimo",
+      "precio": "344",
+      "id": 21
+    }
+  ]
+}

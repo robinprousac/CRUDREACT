@@ -1,4 +1,5 @@
 import React from "react";
+//importa LINK de router dom para las referencias a las rutas
 import { Link } from 'react-router-dom';
 
 
@@ -22,13 +23,14 @@ export default function header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
+          {/* Se agrega el Link con la referencia a la ruta */}
 
-            <Link to={'/'} className="nav-link active">
+            <Link to={'/'} className="nav-link">
                         CRUD - React,  REST API & Axios
                     </Link>
-   
+          {/* Se agrega el Link con la referencia a la ruta */}
             <Link to={"/productos/nuevo"}
-                className="nav-link active"
+                className="nav-link"
             >Agregar Producto &#43;</Link>
           </div>
         </div>

@@ -1,18 +1,25 @@
 import React ,{useState, useContext} from 'react'
 import { ProductosContext } from '../context/ProductosContext';
 
-
+//se recibe como parametro el history (otra manera de hacer una redireccion programada)
 function NuevoProducto({history}) {
 
 
     const { agregarProducto } = useContext(ProductosContext);
+
+    //se crea un state para poder tener un objeto producto a guardar
     const [producto , guardarProducto] =  useState({
         nombre : '',
         precio : 0
     });
 
     const {nombre, precio} = producto;
-
+    
+    //se actualiza el state (producto) con una copia de sus atributos y agregando el nuevo modificado
+    //ejemplo: producto inicial  nombre = "", precio = 0
+    //         producto editado trae unicamente precio = 10
+    //         entonces la copia es nombre = "" (no cambia) y precio = 10 (sustituye a precio = 0)
+    //referencia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
     const actualizarState = e => {
         guardarProducto({
             ... producto,
@@ -20,7 +27,9 @@ function NuevoProducto({history}) {
         })
     }
 
+    //funcion para el manejo del evento submit del formulario
     const submitNuevoProducto = e => {
+        //se previene el evento por defecto que haria recargar la pagina y enviar una peticion post
         e.preventDefault();
 
         // validar formulario
